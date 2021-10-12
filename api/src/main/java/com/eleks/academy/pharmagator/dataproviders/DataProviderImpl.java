@@ -22,4 +22,5 @@ public class DataProviderImpl implements DataProvider {
                 .price(BigDecimal.valueOf(Math.random()))
                 .build();
     }
+
 }

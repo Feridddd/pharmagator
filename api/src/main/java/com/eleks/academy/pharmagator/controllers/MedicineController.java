@@ -10,12 +10,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequiredArgsConstructor
 @RequestMapping("/medicine")
 public class MedicineController {
-    @Autowired
-    private ModelMapper modelMapper;
+    private final ModelMapper modelMapper;
 
+    public MedicineController(ModelMapper modelMapper){
+        this.modelMapper = modelMapper;
+    }
     private Medicine convertToEntity (MedicineDto medicineDto) {
         Medicine medicine = modelMapper.map(medicineDto, Medicine.class);
         return medicine;

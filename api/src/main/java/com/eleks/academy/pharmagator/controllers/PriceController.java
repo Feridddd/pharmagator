@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequiredArgsConstructor
 @RequestMapping("/price")
 public class PriceController {
-    @Autowired
     private ModelMapper modelMapper;
 
+    public PriceController(ModelMapper modelMapper){
+        this.modelMapper = modelMapper;
+    }
     private Price convertToEntity (MedicineDto medicineDto) {
         Price price = modelMapper.map(medicineDto, Price.class);
         return price;
